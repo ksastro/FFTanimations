@@ -15,22 +15,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FFTanimations.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="Image.h">
+      <Filter>Файлы заголовков</Filter>
     </ClCompile>
-    <ClCompile Include="FFT.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="Image.cpp">
+      <Filter>Файлы ресурсов</Filter>
     </ClCompile>
     <ClCompile Include="Flattener.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="FFT.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="FFTanimations.cpp">
+      <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Flattener.h">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="FFT.h">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Flattener.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
