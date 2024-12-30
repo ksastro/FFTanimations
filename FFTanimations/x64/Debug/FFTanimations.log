@@ -1,2 +1,13 @@
-﻿  FFTanimations.cpp
+﻿  FFT.cpp
+C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\FFT.cpp(18,30): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\FFT.cpp(18,30): warning C4244:         with
+C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\FFT.cpp(18,30): warning C4244:         [
+C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\FFT.cpp(18,30): warning C4244:             _Ty=int
+C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\FFT.cpp(18,30): warning C4244:         ]
+C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\FFT.cpp(102,11): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\FFT.cpp(190,11): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Flattener.cpp
+C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\Flattener.cpp(57,8): warning C4552: ">>": результат выражения не используется
+  Создание кода...
+FFTanimations\x64\Debug\Image.obj : warning LNK4042: объект указан более одного раза; лишние не учитываются
   FFTanimations.vcxproj -> C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\x64\Debug\FFTanimations.exe

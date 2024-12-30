@@ -72,12 +72,6 @@ void Color::ExtractColorVectorsTo(std::vector<Color> colors, std::vector<std::ve
     }
 }
 
-//void Color::BuildColorVectorsTo(std::vector<Color>& colors, std::vector<std::vector<int>> colorsDivided) {
-//    int size = std::size(colorsDivided) / 3;
-//    for (int i = 0; i < size; i++) {
-//        colors.push_back(GetVectorOfColor(colors, i));
-//    }
-//}
 
 Image::Image(int width, int height)
     : m_width(width), m_height(height), m_colors(std::vector<Color>(width * height))
@@ -89,7 +83,7 @@ Image::Image(int width, int height, std::vector<std::vector<int>> red, std::vect
 {
     for (int x = 0; x < m_width; x++) {
         for (int y = 0; y < m_height; y++) {
-            Color color = { red[x][y], green[x][y], blue[x][y] };
+            Color color = Color(red[x][y], green[x][y], blue[x][y]);
             m_colors[y * m_width + x] = color;
         }
     }
@@ -109,13 +103,84 @@ void Image::SetColor(Color color, int x, int y)
     m_colors[y * m_width + x] = color;
 }
 
+std::vector<std::vector<Color>> Image::GetColorArray()
+{
+    std::vector<std::vector<Color>> output(m_width, std::vector<Color>(m_height));
+    for (int x = 0; x < m_width; x++) {
+        for (int y = 0; y < m_height; y++) {
+            output[x][y] = (GetColor(x, y));
+        }
+    }
+    return output;
+}
+
+void Image::ExtractColorArraysTo(std::vector<std::vector<std::vector<int>>> &colorsDivided)
+{
+    std::vector<std::vector<Color>> colors = GetColorArray();
+    std::vector<std::vector<int>> red(m_width, std::vector<int>(m_height));
+    std::vector<std::vector<int>> green(m_width, std::vector<int>(m_height));
+    std::vector<std::vector<int>> blue(m_width, std::vector<int>(m_height));
+    for (int x = 0; x < m_width; x++) {
+        for (int y = 0; y < m_height; y++) {
+            Color color = GetColor(x, y);
+            red[x][y] = color.r;
+            green[x][y] = color.g;
+            blue[x][y] = color.b;
+        }
+    }
+    colorsDivided.push_back(red);
+    colorsDivided.push_back(green);
+    colorsDivided.push_back(blue);
+}
 
 
-void Image::Read(std::string path)
+
+void Image::ReadWithAlpha(const std::string path)
 {
     std::ifstream file;
     file.open(path, std::ios::in | std::ios::binary);
-    if (!file.is_open()) {
+    if (!file.is_open())
+    {
+        std::cout << "File opening not successful";
+        return;
+    }
+
+    unsigned char fileHeader[fileHeaderSize];
+    file.read(reinterpret_cast<char*>(fileHeader), fileHeaderSize);
+
+    unsigned char informationHeader[informationHeaderSize];
+    file.read(reinterpret_cast<char*>(informationHeader), informationHeaderSize);
+
+    int fileSize = fileHeader[2] + (fileHeader[3] << 8) + (fileHeader[4] << 16) + (fileHeader[5] << 24);
+    m_width = informationHeader[4] + (informationHeader[5] << 8) + (informationHeader[6] << 16) + (informationHeader[7] << 24);
+    m_height = informationHeader[8] + (informationHeader[9] << 8) + (informationHeader[10] << 16) + (informationHeader[11] << 24);
+
+    m_colors.resize(m_width * m_height);
+    const int paddingAmount = (4 - (m_width * 3) % 4) % 4;
+
+    for (int y = 0; y < m_height; y++) {
+        for (int x = 0; x < m_width; x++) {
+            unsigned char colorArray[3];
+            file.read(reinterpret_cast<char*>(colorArray), 3);
+            int r = static_cast<int>(colorArray[2]);
+            int g = static_cast<int>(colorArray[1]);
+            int b = static_cast<int>(colorArray[0]);
+
+            Color color = Color(r, g, b);
+            SetColor(color, x, y);
+            file.ignore(1);         //Ignoring alpha
+        }
+        file.ignore(paddingAmount);
+    }
+
+    file.close();
+}
+void Image::Read(const std::string path)
+{
+    std::ifstream file;
+    file.open(path, std::ios::in | std::ios::binary);
+    if (!file.is_open()) 
+    {
         std::cout << "File opening not successful";
         return;
     }
@@ -273,4 +338,17 @@ void ImageUnitTest() {
         }
     }
     image.Export("image.bmp");
+}
+Image TestImage() {
+    const int height = 2;
+    const int width = 2;
+
+    Image image(width, height);
+
+    image.SetColor(Color(255,0,0), 0, 0);
+    image.SetColor(Color(0,255,0), 0, 1);
+    image.SetColor(Color(0,0,255), 1, 0);
+    image.SetColor(Color(255,255,255), 1, 1);
+    image.Export("image.bmp");
+    return image;
 }

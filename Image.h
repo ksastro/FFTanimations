@@ -15,7 +15,6 @@ struct Color {
     static std::vector<int> GetBlueVector(std::vector<Color>);
     static std::vector<std::vector<int>> GetColorVectors(std::vector<Color> colors);
     static void ExtractColorVectorsTo(std::vector<Color> colors, std::vector<std::vector<int>> &colorsDivided);
-    //static void BuildColorVectorsTo(std::vector<Color>& colors, std::vector<std::vector<int>> colorsDivided);
 };
 class Image {
 public:
@@ -27,10 +26,13 @@ public:
 
     Color GetColor(int x, int y) const;
     void SetColor(Color color, int x, int y);
+    std::vector<std::vector<Color>> GetColorArray();
+    void ExtractColorArraysTo(std::vector<std::vector<std::vector<int>>> &colorsDivided);
 
 
 
-    void Read(std::string path);
+    void Read(const std::string path);
+    void ReadWithAlpha(const std::string path);
     void Export(std::string path) const;
 private:
     int m_width;
@@ -39,3 +41,4 @@ private:
 };
 
 void ImageUnitTest();
+Image TestImage();

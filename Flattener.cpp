@@ -1,5 +1,4 @@
 #include "Flattener.h"
-#include "Image.h"
 #include <vector>
 
 
@@ -109,8 +108,8 @@ std::vector<ivec2> HilbertCurve(std::vector<std::vector<ivec2>> input2d, int bit
 std::vector<Color> HilbertCurve(Image image, int bitSize) {
 	std::vector<Color> output;
 	for (int i = 0; i < 1 << (2 * bitSize); i++) {
-		ivec2 ij = HilbertCurve(i, bitSize);
-		output.push_back(image.GetColor(ij.x, ij.y));
+		ivec2 xy = HilbertCurve(i, bitSize);
+		output.push_back(image.GetColor(xy.x, xy.y));
 	}
 	return output;
 }
@@ -135,22 +134,82 @@ std::vector<std::vector<std::vector<int>>> HilbertReverse(std::vector<std::vecto
 	return output;
 }
 
-void unitTestHilbert() {
+void unitTestHilbert1()			// Tests going from 2d to 1d
+{
+	
+	const int bitSize = 4;
+	const int size = 1 << bitSize;
+	
+	
 	std::vector<std::vector<ivec2>> input;
-	const int bitSize = 9;
-	int size = 1 << bitSize;
 	for (int i = 0; i < size; i++) {
 		input.push_back({});
 		for (int j = 0; j < size; j++) {
-			input[i].push_back({ i,j });
+			input[i].push_back({ i, j});
 		}
 	}
 
 	std::vector<ivec2> hilbertCurve = HilbertCurve(input, bitSize);
-	std::cout << std::size(hilbertCurve) << std::endl;
 	std::cout << "{";
 	for (int i = 0; i < size * size; i++) {
 		std::cout << "{" << hilbertCurve[i].x << ", " << hilbertCurve[i].y << "}, ";
 	}
 	std::cout << "}" << std::endl;
+
+
+
+	return;
+
+	
+}
+void unitTestHilbert2()			// Tests going from 2d to 1d and back
+{
+	const int bitSize = 4;
+	const int size = 1 << bitSize;
+
+
+	std::vector<std::vector<int>> input;
+	for (int i = 0; i < size; i++) {
+		input.push_back({});
+		for (int j = 0; j < size; j++) {
+			input[i].push_back(size * i + j);
+		}
+	}
+
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			std::cout << input[i][j] << ", ";
+		}
+		std::cout << std::endl;
+	}
+
+	std::vector<int> hilbertCurve = HilbertCurve(input, bitSize);
+
+	std::vector<std::vector<int>> inputAgain = HilbertReverse(hilbertCurve, bitSize);
+
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			std::cout << inputAgain[i][j] << ", ";
+		}
+		std::cout << std::endl;
+	}
+}
+void unitTestHilbert3()				// Tests going from 1d to 2d and back
+{	
+	const int bitSize = 4;
+	const int size = 1 << bitSize;
+
+	std::cout << "One" << std::endl;
+	std::vector<int> input2;
+	for (int i = 0; i < size * size; i++) {
+		input2.push_back(i);
+	}
+	std::cout << "Two" << std::endl;
+	std::vector<std::vector<int>> curve2d = HilbertReverse(input2, bitSize);
+	std::cout << "Three" << std::endl;
+	std::vector<int> curve2 = HilbertCurve(curve2d, bitSize);
+	std::cout << "Four" << std::endl;
+	for (int element : curve2) {
+		std::cout << element << ", ";
+	}
 }

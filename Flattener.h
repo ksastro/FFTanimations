@@ -19,4 +19,6 @@ std::vector<Color> HilbertCurve(Image image, int bitSize);
 std::vector<std::vector<int>> HilbertReverse(std::vector<int> curve, int bitSize);
 std::vector<std::vector<std::vector<int>>> HilbertReverse(std::vector<std::vector<int>> curves, int bitSize);
 
-void unitTestHilbert();
+void unitTestHilbert1();
+void unitTestHilbert2();
+void unitTestHilbert3();

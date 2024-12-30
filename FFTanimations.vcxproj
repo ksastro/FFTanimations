@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="FFT.cpp" />
     <ClCompile Include="FFTanimations.cpp" />
     <ClCompile Include="Flattener.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="Image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="FFT.h" />
     <ClInclude Include="Flattener.h" />
   </ItemGroup>
