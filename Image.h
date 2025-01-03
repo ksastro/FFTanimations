@@ -20,6 +20,7 @@ class Image {
 public:
     static const int fileHeaderSize = 14;
     static const int informationHeaderSize = 40;
+    Image(int bitSize);
     Image(int width, int height);
     Image(int width, int height, std::vector<std::vector<int>> red, std::vector<std::vector<int>> green, std::vector<std::vector<int>> blue);
     ~Image();
@@ -29,15 +30,20 @@ public:
     std::vector<std::vector<Color>> GetColorArray();
     void ExtractColorArraysTo(std::vector<std::vector<std::vector<int>>> &colorsDivided);
 
-
+    int GetBitSize();
 
     void Read(const std::string path);
     void ReadWithAlpha(const std::string path);
     void Export(std::string path) const;
+
 private:
+
     int m_width;
     int m_height;
     std::vector<Color> m_colors;
+
+    void m_SetFFTsFromColors();
+    void m_SetColorsFromFFTs();
 };
 
 void ImageUnitTest();

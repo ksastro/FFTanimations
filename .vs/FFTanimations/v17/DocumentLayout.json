@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\FFTanimations.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|solutionrelative:FFTanimations.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Animation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|solutionrelative:Animation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Animation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|solutionrelative:Animation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\FFT.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|solutionrelative:FFT.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\FFTanimations.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|solutionrelative:FFTanimations.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Flattener.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|solutionrelative:Flattener.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Image.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -23,12 +27,16 @@
       "RelativeMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|solutionrelative:Image.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\FFT.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|solutionrelative:FFT.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\FFT.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|solutionrelative:FFT.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Animation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|solutionrelative:Animation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Flattener.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7A8D54A-23D3-4E03-8596-AA928EDBAB13}|FFTanimations.vcxproj|solutionrelative:Flattener.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +46,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Flattener.h",
+              "DocumentMoniker": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Flattener.h",
+              "RelativeDocumentMoniker": "Flattener.h",
+              "ToolTip": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Flattener.h",
+              "RelativeToolTip": "Flattener.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-12-30T22:20:43.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Flattener.cpp",
+              "DocumentMoniker": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Flattener.cpp",
+              "RelativeDocumentMoniker": "Flattener.cpp",
+              "ToolTip": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Flattener.cpp",
+              "RelativeToolTip": "Flattener.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-30T22:20:10.419Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -48,85 +80,81 @@
               "RelativeDocumentMoniker": "Animation.h",
               "ToolTip": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Animation.h",
               "RelativeToolTip": "Animation.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-29T20:01:01.206Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Animation.cpp",
               "DocumentMoniker": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Animation.cpp",
               "RelativeDocumentMoniker": "Animation.cpp",
               "ToolTip": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Animation.cpp",
               "RelativeToolTip": "Animation.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-29T19:15:45.636Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "FFT.h",
               "DocumentMoniker": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\FFT.h",
               "RelativeDocumentMoniker": "FFT.h",
               "ToolTip": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\FFT.h",
               "RelativeToolTip": "FFT.h",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACgAAABAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-12-29T18:35:57.618Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T18:35:57.618Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "FFT.cpp",
               "DocumentMoniker": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\FFT.cpp",
               "RelativeDocumentMoniker": "FFT.cpp",
               "ToolTip": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\FFT.cpp",
               "RelativeToolTip": "FFT.cpp",
-              "ViewState": "AgIAAOYAAAAAAAAAAAAAAAgBAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-29T18:35:58.992Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T18:35:58.992Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Image.h",
               "DocumentMoniker": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Image.h",
               "RelativeDocumentMoniker": "Image.h",
               "ToolTip": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Image.h",
               "RelativeToolTip": "Image.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACEAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-12-25T08:16:39.408Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T08:16:39.408Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Image.cpp",
               "DocumentMoniker": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Image.cpp",
               "RelativeDocumentMoniker": "Image.cpp",
               "ToolTip": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\Image.cpp",
               "RelativeToolTip": "Image.cpp",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAAALEAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAF0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-25T08:16:32.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T08:16:32.1Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "FFTanimations.cpp",
               "DocumentMoniker": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\FFTanimations.cpp",
               "RelativeDocumentMoniker": "FFTanimations.cpp",
               "ToolTip": "C:\\Users\\stepa\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\\u0425\u043E\u0431\u0431\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B\\FFTanimations\\FFTanimations.cpp",
               "RelativeToolTip": "FFTanimations.cpp",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACAAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-14T18:43:25.373Z",
               "EditorCaption": ""

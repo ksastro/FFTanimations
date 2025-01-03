@@ -1,5 +1,5 @@
 #include "FFT.h"
-#include "image.h"
+#include "Image.h"
 #include <complex>
 #include <vector>
 
