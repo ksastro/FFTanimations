@@ -1,26 +1,33 @@
 ﻿#include <iostream>
-#include <vector>
-#include <complex>
 #include "Image.h"
 #include "Animation.h"
 
 
 int main()
 {    
-    const int NUMBER_OF_FRAMES = 24;
+    const int NUMBER_OF_FRAMES = 13;
     const int bitSize = 9;
     const int imageSize = 1 << bitSize;
 
     Image FirstFrame = Image(imageSize, imageSize);
     Image LastFrame = Image(imageSize, imageSize);
-    
-    FirstFrame.ReadWithAlpha("Masha.bmp");
-    LastFrame.ReadWithAlpha("Stepan.bmp");
 
-    Animation animation = Animation(FirstFrame, LastFrame);
+    FirstFrame.ReadWithAlpha("Water1.bmp");
+    LastFrame.ReadWithAlpha("Water2.bmp");
+
+    //FirstFrame.ReadWithAlpha("Masha.bmp");
+    //LastFrame.ReadWithAlpha("Stepan.bmp");
+
+    Animation animation(FirstFrame, LastFrame);
+
+    animation.Settings.interpolationTrajectory = spiral;
+    animation.Settings.dynamicInterpolationType = off;
+    animation.Settings.fftType = twoDim;
+    animation.Settings.tempoCurveType = sigmoid;
+    animation.Settings.sigmoidExponent = 3.;
 
     animation.FillFrames(NUMBER_OF_FRAMES);
 
-    animation.Export();    
+    animation.Export();
     return 0;
 }

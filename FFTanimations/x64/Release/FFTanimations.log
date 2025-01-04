@@ -1,0 +1,8 @@
+﻿  FFTanimations.cpp
+FFTanimations\x64\Release\Image.obj : warning LNK4042: объект указан более одного раза; лишние не учитываются
+  Создание кода
+  1 of 992 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  FFTanimations.vcxproj -> C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\x64\Release\FFTanimations.exe

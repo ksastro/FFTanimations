@@ -6,17 +6,13 @@ Color::Color()
     : r(0), g(0), b(0)
 {
 }
-
 Color::Color(int red, int green, int blue)
     : r(red), g(green), b(blue)
 {
 }
-
 Color::~Color()
 {
 }
-
-
 
 std::vector<int> Color::GetVectorOfColor(std::vector<Color> colors, int colorIndex)
 {
@@ -41,20 +37,6 @@ std::vector<int> Color::GetVectorOfColor(std::vector<Color> colors, int colorInd
     }
     return output;
 }
-
-std::vector<int> Color::GetRedVector(std::vector<Color> colors)
-{
-    return GetVectorOfColor(colors, 0);
-}
-std::vector<int> Color::GetGreenVector(std::vector<Color> colors)
-{
-    return GetVectorOfColor(colors, 1);
-}
-std::vector<int> Color::GetBlueVector(std::vector<Color> colors)
-{
-    return GetVectorOfColor(colors, 2);
-}
-
 std::vector<std::vector<int>> Color::GetColorVectors(std::vector<Color> colors) {
     int size = (int)std::size(colors);
     std::vector<std::vector<int>> output;
@@ -79,7 +61,7 @@ Image::Image(int width, int height)
 {
 
 }
-Image::Image(int width, int height, std::vector<std::vector<int>> red, std::vector<std::vector<int>> green, std::vector<std::vector<int>> blue)
+Image::Image(int width, int height, IntMatrix red, IntMatrix green, IntMatrix blue)
     : m_width(width), m_height(height), m_colors(std::vector<Color>(width* height))
 {
     for (int x = 0; x < m_width; x++) {
@@ -138,7 +120,7 @@ int Image::GetBitSize()
     int x = m_width;
     int output = -1;
     while (x > 0) {
-        x >> 1;
+        x = x >> 1;
         output++;
     }
     return output;
@@ -336,8 +318,6 @@ void Image::Export(std::string path) const
     std::cout << "File created successfully\n";
 
 }
-
-
 
 void ImageUnitTest() {
     const int height = 512;

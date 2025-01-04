@@ -89,7 +89,7 @@ std::vector<Color> HilbertCurve(std::vector<std::vector<Color>> input2d, int bit
 	}
 	return output;
 }
-std::vector<int> HilbertCurve(std::vector<std::vector<int>> input2d, int bitSize) {
+std::vector<int> HilbertCurve(IntMatrix input2d, int bitSize) {
 	std::vector<int> output;
 	for (int i = 0; i < 1 << (2 * bitSize); i++) {
 		ivec2 ij = HilbertCurve(i, bitSize);
@@ -115,7 +115,7 @@ std::vector<Color> HilbertCurve(Image image, int bitSize) {
 }
 
 
-std::vector<std::vector<int>> HilbertReverse(std::vector<int> curve, int bitSize) 
+IntMatrix HilbertReverse(std::vector<int> curve, int bitSize)
 {
 	int size = 1 << bitSize;
 	std::vector<std::vector<int>> output(size, std::vector<int>(size));
@@ -125,7 +125,7 @@ std::vector<std::vector<int>> HilbertReverse(std::vector<int> curve, int bitSize
 	}
 	return output;
 }
-std::vector<std::vector<std::vector<int>>> HilbertReverse(std::vector<std::vector<int>> curves, int bitSize)
+std::vector<IntMatrix> HilbertReverse(IntMatrix curves, int bitSize)
 {
 	std::vector<std::vector<std::vector<int>>> output;
 	for (std::vector<int> element : curves) {

@@ -15,7 +15,7 @@ std::vector<int> ComplexToInt(ComplexArray input)
 	for (std::complex<double> number : input) {
 		double magn = std::abs(number);
 		if (magn > 255) magn = 255;
-		output.push_back(std::round(magn));
+		output.push_back((int)std::round(magn));
 	}
 	return output;
 }

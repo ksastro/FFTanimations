@@ -1,21 +1,17 @@
 #include "Animation.h"
 
-static double Sigmoid(double t, double n)
+static double Sigmoid(double t, double exponent)
 {
-    if (t > 0.5) return (1 - Sigmoid(1 - t, n));
-    return (pow(2, n-1) * pow(t,n));
+    if (t > 0.5) return (1 - Sigmoid(1 - t, exponent));
+    return (pow(2, exponent-1) * pow(t,exponent));
 }
-static double ReverseSigmoid(double t, double n)
+static double ReverseSigmoid(double t, double exponent)
 {
-    return (Sigmoid(t, 1 / n));
+    return (Sigmoid(t, 1 / exponent));
 }
 
 AnimationSettings::AnimationSettings()
-    :interpolationTrajectory(spiral), tempoCurveType(line), fftType(twoDim), dynamicInterpolationType(off)
-{
-}
-AnimationSettings::AnimationSettings(InterpolationTrajectory trajectory, TempoCurveType tempoCurve, FftType fft, DynamicInterpolationType dynamicType)
-    :interpolationTrajectory(trajectory), tempoCurveType(tempoCurve), fftType(fft), dynamicInterpolationType(dynamicType)
+    :interpolationTrajectory(spiral), tempoCurveType(linear), fftType(twoDim), dynamicInterpolationType(off), sigmoidExponent(3.)
 {
 }
 AnimationSettings::~AnimationSettings()
@@ -157,7 +153,11 @@ static std::complex<double> InterpolateLine(std::complex<double> x, std::complex
 }
 static std::complex<double> InterpolateSpiral(std::complex<double> x, std::complex<double> y, double t)
 {
-    double magn = (1 - t) * std::abs(x) + t * std::abs(y);
+    double absx = std::abs(x);
+    double absy = std::abs(y);
+    if (absx == 0) return (y * 0.5);
+    if (absy == 0) return (x * 0.5);
+    double magn = (1 - t) * absx + t * absy;
     double arg = (1 - t) * std::arg(x) + t * std::arg(y);
     std::complex<double> output = std::polar(magn, arg);
     return output;
@@ -171,19 +171,45 @@ std::complex<double> Animation::Interpolate(std::complex<double> x, std::complex
     case spiral:
         return (InterpolateSpiral(x, y, t));
     }
+    return (InterpolateSpiral(x, y, t));
 }
 
 ComplexArray Animation::Interpolate(ComplexArray X, ComplexArray Y, double t, int size) {
     ComplexArray output(size);
+    double index = t;
     for (int i = 0; i < size; i++) {
-        output[i] = Interpolate(X[i], Y[i], t);
+        switch (Settings.dynamicInterpolationType) {
+        case evenOdd:
+            Settings.sigmoidExponent = 1 / Settings.sigmoidExponent;
+            index = Sigmoid(t, Settings.sigmoidExponent);
+            break;
+        case hiLow:
+            std::cout << "hiLow not implemented!" << std::endl << std::endl;
+            break;
+            index = Sigmoid(t, pow(Settings.sigmoidExponent, 2 * i / size));
+        case off:
+            break;
+        }
+        output[i] = Interpolate(X[i], Y[i], index);
     }
     return output;
 }
 ComplexMatrix Animation::Interpolate(ComplexMatrix X, ComplexMatrix Y, double t, int size) {
     std::vector<ComplexArray> output(size);
+    double index = t;
     for (int i = 0; i < size; i++) {
-        output[i] = Interpolate(X[i], Y[i], t, size);
+        switch (Settings.dynamicInterpolationType) {
+        case evenOdd:
+            Settings.sigmoidExponent = 1 / Settings.sigmoidExponent;
+            break;
+        case hiLow:
+            std::cout << "hiLow not implemented!" << std::endl << std::endl;
+            break;
+            index = Sigmoid(t, Settings.sigmoidExponent * 2 * i / size);
+        case off:
+            break;
+        }
+        output[i] = Interpolate(X[i], Y[i], index, size);
     }
     return output;
 }

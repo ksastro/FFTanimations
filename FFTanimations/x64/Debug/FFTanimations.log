@@ -1,2 +1,9 @@
-﻿  FFTanimations.cpp
+﻿  Animation.cpp
+  FFTanimations.cpp
+  Image.cpp
+  Создание кода...
+C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\Image.cpp(326,29): warning C4244: инициализация: преобразование "short" в "unsigned char", возможна потеря данных
+C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\Image.cpp(327,29): warning C4244: инициализация: преобразование "short" в "unsigned char", возможна потеря данных
+C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\Image.cpp(328,29): warning C4244: инициализация: преобразование "short" в "unsigned char", возможна потеря данных
+FFTanimations\x64\Debug\Image.obj : warning LNK4042: объект указан более одного раза; лишние не учитываются
   FFTanimations.vcxproj -> C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\x64\Debug\FFTanimations.exe

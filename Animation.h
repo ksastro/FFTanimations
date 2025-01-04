@@ -2,11 +2,12 @@
 #include "FFT.h"
 #include "Image.h"
 #include "Flattener.h"
+#include <iostream>
 #include <vector>
 #include <complex>
 
 enum InterpolationTrajectory { lineSegment, spiral };
-enum TempoCurveType { line, sigmoid, reverseSigmoid };
+enum TempoCurveType { linear, sigmoid, reverseSigmoid };
 enum FftType { twoDim , oneDimWithFlattening};
 enum DynamicInterpolationType {off, evenOdd, hiLow};
 
@@ -16,9 +17,9 @@ struct AnimationSettings
 	TempoCurveType tempoCurveType;
 	FftType fftType;
 	DynamicInterpolationType dynamicInterpolationType;
+	double sigmoidExponent;
 
 	AnimationSettings();
-	AnimationSettings(InterpolationTrajectory trajectory, TempoCurveType tempoCurve, FftType fftType, DynamicInterpolationType dynamicInterpolationType);
 	~AnimationSettings();
 
 };
