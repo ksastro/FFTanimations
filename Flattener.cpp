@@ -1,5 +1,4 @@
 #include "Flattener.h"
-#include <vector>
 
 
 static int bitConvertXYtoL(int XY) {		//input = xy;

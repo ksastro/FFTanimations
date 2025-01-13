@@ -1,8 +1,15 @@
-﻿  FFTanimations.cpp
+﻿  Animation.cpp
+  FFTanimations.cpp
+  Image.h
 FFTanimations\x64\Release\Image.obj : warning LNK4042: объект указан более одного раза; лишние не учитываются
-  Создание кода
-  1 of 992 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Создание кода завершено
-  FFTanimations.vcxproj -> C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\x64\Release\FFTanimations.exe
+Animation.obj : error LNK2001: неразрешенный внешний символ "public: static void __cdecl Color::ExtractColorVectorsTo(class std::vector<struct Color,class std::allocator<struct Color> >,class std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > > &)" (?ExtractColorVectorsTo@Color@@SAXV?$vector@UColor@@V?$allocator@UColor@@@std@@@std@@AEAV?$vector@V?$vector@HV?$allocator@H@std@@@std@@V?$allocator@V?$vector@HV?$allocator@H@std@@@std@@@2@@3@@Z).
+Animation.obj : error LNK2001: неразрешенный внешний символ "public: __cdecl Color::~Color(void)" (??1Color@@QEAA@XZ).
+Animation.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Image::Export(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)const " (?Export@Image@@QEBAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z).
+Animation.obj : error LNK2001: неразрешенный внешний символ "public: int __cdecl Image::GetBitSize(void)" (?GetBitSize@Image@@QEAAHXZ).
+Animation.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Image::ExtractColorArraysTo(class std::vector<class std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >,class std::allocator<class std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > > > > &)" (?ExtractColorArraysTo@Image@@QEAAXAEAV?$vector@V?$vector@V?$vector@HV?$allocator@H@std@@@std@@V?$allocator@V?$vector@HV?$allocator@H@std@@@std@@@2@@std@@V?$allocator@V?$vector@V?$vector@HV?$allocator@H@std@@@std@@V?$allocator@V?$vector@HV?$allocator@H@std@@@std@@@2@@std@@@2@@std@@@Z).
+Animation.obj : error LNK2001: неразрешенный внешний символ "public: __cdecl Image::~Image(void)" (??1Image@@QEAA@XZ).
+Animation.obj : error LNK2001: неразрешенный внешний символ "public: __cdecl Image::Image(int,int,class std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >,class std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >,class std::vector<class std::vector<int,class std::allocator<int> >,class std::allocator<class std::vector<int,class std::allocator<int> > > >)" (??0Image@@QEAA@HHV?$vector@V?$vector@HV?$allocator@H@std@@@std@@V?$allocator@V?$vector@HV?$allocator@H@std@@@std@@@2@@std@@00@Z).
+FFTanimations.obj : error LNK2001: неразрешенный внешний символ "public: void __cdecl Image::ReadWithAlpha(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?ReadWithAlpha@Image@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z).
+FFTanimations.obj : error LNK2001: неразрешенный внешний символ "public: __cdecl Image::Image(int,int)" (??0Image@@QEAA@HH@Z).
+Flattener.obj : error LNK2001: неразрешенный внешний символ "public: struct Color __cdecl Image::GetColor(int,int)const " (?GetColor@Image@@QEBA?AUColor@@HH@Z).
+C:\Users\stepa\OneDrive\Рабочий стол\Хобби проекты\FFTanimations\x64\Release\FFTanimations.exe : fatal error LNK1120: неразрешенных внешних элементов: 10

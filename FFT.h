@@ -1,8 +1,9 @@
 #pragma once
-#include "image.h"
 #include <iostream>
 #include <vector>
 #include <complex>
+#include "Image.h"
+
 
 const double pi = std::acos(-1.0);
 const double twopi = 2. * pi;
@@ -41,6 +42,8 @@ ComplexMatrix fft2d(ComplexMatrix& input);
 std::vector<ComplexMatrix> fft2d(std::vector<ComplexMatrix>& input);
 ComplexMatrix fftReverse2d(ComplexMatrix& input);
 std::vector<ComplexMatrix> fftReverse2d(std::vector<ComplexMatrix>& input);
+
+void ExportFft2d(Image image, int size);
 
 
 void fftUnitTest();

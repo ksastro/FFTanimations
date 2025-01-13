@@ -1,17 +1,48 @@
 #include "Animation.h"
 
-static double Sigmoid(double t, double exponent)
+//Functions below are single-parameter (0,1) -> (0.1) mappings, used to control the tempo of frame transitions
+
+// This function is symmetric in respect to (0.5,0.5) and needs a positive parameter
+static double Sigmoid(double t, double parameter)
 {
-    if (t > 0.5) return (1 - Sigmoid(1 - t, exponent));
-    return (pow(2, exponent-1) * pow(t,exponent));
+    if (parameter <= 0) {
+        std::cout << "Invalid tempo curve parameter value, must be larger than 0";
+        return t;
+    }
+    if (t > 0.5) return (1 - Sigmoid(1 - t, parameter));
+    return (pow(2, parameter-1) * pow(t,parameter));
 }
-static double ReverseSigmoid(double t, double exponent)
+// This function is symmetric in respect to a line passing through (0,1) and (1,0) and needs a parameter in range (-1, 1)
+static double Gammoid(double t, double parameter) {
+    
+    if (parameter < -1. || parameter > 1.) 
+    {
+        std::cout << "Invalid tempo curve parameter value, must be in range (-1, 1), but is" << parameter << std::endl;
+        return t;
+    }
+    if (parameter == 0) return t;
+    double output = ((1 + parameter - parameter * t - sqrt((1 + parameter) * (1 + parameter) - 4 * parameter * t)) / parameter);
+    if (output < 0 || output > 1) std::cout << output << std::endl;
+    return output;
+}
+double Animation::TempoCurve(double t, double parameter)
 {
-    return (Sigmoid(t, 1 / exponent));
+    switch (Settings.tempoCurveType)
+    {
+    case sigmoid:
+        return Sigmoid(t, parameter);
+    case gammoid:
+        return Gammoid(t, parameter);
+    case linear:
+        return t;
+    default:
+        return t;
+    }
 }
 
+
 AnimationSettings::AnimationSettings()
-    :interpolationTrajectory(spiral), tempoCurveType(linear), fftType(twoDim), dynamicInterpolationType(off), sigmoidExponent(3.)
+    :interpolationTrajectory(spiral), tempoCurveType(linear), fftType(twoDim), dynamicInterpolationType(off), tempoCurveParameter(3.)
 {
 }
 AnimationSettings::~AnimationSettings()
@@ -39,11 +70,11 @@ void Animation::FillFrames2d(int frameCount)
     std::cout << "Color extraction finished" << std::endl << std::endl;
 
     std::cout << "Starting comlex converting" << std::endl;
-    std::vector<std::vector<ComplexArray>> ColorsComplex = IntToComplex(ColorsSeparated);
+    std::vector<ComplexMatrix> ColorsComplex = IntToComplex(ColorsSeparated);
     std::cout << "Comlex converting finished" << std::endl << std::endl;
 
     std::cout << "Starting fft" << std::endl;
-    std::vector<std::vector<ComplexArray>> fftsByColor = fft2d(ColorsComplex);
+    std::vector<ComplexMatrix> fftsByColor = fft2d(ColorsComplex);
     std::cout << "Fft finished" << std::endl << std::endl;
 
     std::cout << "Starting creating frames" << std::endl;
@@ -75,6 +106,7 @@ void Animation::FillFrames2d(int frameCount)
     }
     std::cout << "Animation assembly finished" << std::endl << std::endl;
 }
+
 void Animation::FillFramesWithFlattening(int frameCount)
 {
     std::cout << "Starting flattening" << std::endl;
@@ -177,39 +209,73 @@ std::complex<double> Animation::Interpolate(std::complex<double> x, std::complex
 ComplexArray Animation::Interpolate(ComplexArray X, ComplexArray Y, double t, int size) {
     ComplexArray output(size);
     double index = t;
+
+    double reverseMapIndexToZeroOne, mapIndexToZeroOne, mapIndexToNegOneOne, parameter = 1.; //only needed for hiLow
+
     for (int i = 0; i < size; i++) {
         switch (Settings.dynamicInterpolationType) {
         case evenOdd:
-            Settings.sigmoidExponent = 1 / Settings.sigmoidExponent;
-            index = Sigmoid(t, Settings.sigmoidExponent);
+            if (Settings.tempoCurveType == sigmoid) Settings.tempoCurveParameter = 1. / Settings.tempoCurveParameter;
+            if (Settings.tempoCurveType == gammoid) Settings.tempoCurveParameter = -Settings.tempoCurveParameter;
+            index = TempoCurve(t, Settings.tempoCurveParameter);
             break;
         case hiLow:
-            std::cout << "hiLow not implemented!" << std::endl << std::endl;
+            reverseMapIndexToZeroOne = abs((double)i - (double)size / 2) * 2 / (double)size;
+            mapIndexToZeroOne = 1 - reverseMapIndexToZeroOne;
+            mapIndexToNegOneOne = 2 * mapIndexToZeroOne - 1;
+            if (Settings.tempoCurveType == sigmoid) 
+            { 
+                parameter = pow(sqrt(Settings.tempoCurveParameter), mapIndexToNegOneOne);                           //parameter smoothly goes from 1/n to n and then back
+                if (Settings.fftType == twoDim) parameter = sqrt(parameter);
+            }   
+            if (Settings.tempoCurveType == gammoid) parameter = Settings.tempoCurveParameter * mapIndexToNegOneOne; //parameter smoothly goes from -n to n and then back
+            index = TempoCurve(t, parameter);
+            if (index < 0 || index > 1) std::cout << index << std::endl;
             break;
-            index = Sigmoid(t, pow(Settings.sigmoidExponent, 2 * i / size));
         case off:
             break;
         }
         output[i] = Interpolate(X[i], Y[i], index);
+        /*if (abs(X[i]) > 0.0001 || abs(Y[i]) > 0.0001) {
+            std::cout << X[i] << std::endl;
+            std::cout << Y[i] << std::endl;
+            std::cout << output[i] << std::endl << std::endl;
+        }*/
     }
     return output;
 }
 ComplexMatrix Animation::Interpolate(ComplexMatrix X, ComplexMatrix Y, double t, int size) {
     std::vector<ComplexArray> output(size);
     double index = t;
+
+    double reverseMapIndexToZeroOne, mapIndexToZeroOne, mapIndexToNegOneOne, parameter = 1.; //only needed for hiLow
+
     for (int i = 0; i < size; i++) {
         switch (Settings.dynamicInterpolationType) {
         case evenOdd:
-            Settings.sigmoidExponent = 1 / Settings.sigmoidExponent;
+            if(Settings.tempoCurveType == sigmoid) Settings.tempoCurveParameter = 1. / Settings.tempoCurveParameter;
+            if (Settings.tempoCurveType == gammoid) Settings.tempoCurveParameter = - Settings.tempoCurveParameter;
             break;
         case hiLow:
-            std::cout << "hiLow not implemented!" << std::endl << std::endl;
+            reverseMapIndexToZeroOne = abs((double)i - (double)size / 2) * 2 / (double)size;
+            mapIndexToZeroOne = 1. - reverseMapIndexToZeroOne;
+            mapIndexToNegOneOne = 2. * mapIndexToZeroOne - 1.;
+            if (Settings.tempoCurveType == sigmoid) parameter = pow(sqrt(Settings.tempoCurveParameter), mapIndexToNegOneOne);   //parameter smoothly goes from 1/n to n and then back
+            if (Settings.tempoCurveType == gammoid) parameter = Settings.tempoCurveParameter * mapIndexToNegOneOne;             //parameter smoothly goes from -n to n and then back
+            index = TempoCurve(t, parameter);
             break;
-            index = Sigmoid(t, Settings.sigmoidExponent * 2 * i / size);
         case off:
             break;
         }
         output[i] = Interpolate(X[i], Y[i], index, size);
     }
     return output;
+}
+
+void GammoidUnitTest()
+{
+    for (double x = 0.; x < 1; x += 0.01) {
+        std::cout << "{" << x << ", " << Gammoid(x, -1) << "}, ";
+    }
+    std::cout << std::endl;
 }

@@ -1,6 +1,8 @@
 ﻿#include <iostream>
+#include <string>
 #include "Image.h"
 #include "Animation.h"
+
 
 
 int main()
@@ -11,6 +13,8 @@ int main()
 
     Image FirstFrame = Image(imageSize, imageSize);
     Image LastFrame = Image(imageSize, imageSize);
+
+    
 
     FirstFrame.ReadWithAlpha("Water1.bmp");
     LastFrame.ReadWithAlpha("Water2.bmp");
@@ -24,7 +28,7 @@ int main()
     animation.Settings.dynamicInterpolationType = off;
     animation.Settings.fftType = twoDim;
     animation.Settings.tempoCurveType = sigmoid;
-    animation.Settings.sigmoidExponent = 3.;
+    animation.Settings.tempoCurveParameter = 3;
 
     animation.FillFrames(NUMBER_OF_FRAMES);
 

@@ -1,6 +1,5 @@
 #include "Image.h"
-#include <fstream>
-#include <iostream>
+
 
 Color::Color() 
     : r(0), g(0), b(0)
@@ -51,6 +50,31 @@ void Color::ExtractColorVectorsTo(std::vector<Color> colors, std::vector<std::ve
     }
 }
 
+Color Color::ConvertComplexToColor(double magnitude, double phase)
+{
+    int red = 0, green = 0, blue = 0;
+    const double TwoPiOverThree = 2.0943951023931953;
+    int colorPair = (int)std::floor(phase / TwoPiOverThree);
+    double colorPhase = phase / TwoPiOverThree - colorPair;
+    int firstColor = (int)(magnitude * colorPhase);
+    int secondColor = (int)(magnitude * (1. - colorPhase));
+    switch (colorPair) {
+    case 0:
+        red = firstColor;
+        green = secondColor;
+        break;
+    case 1:
+        green = firstColor;
+        blue = secondColor;
+        break;
+    case 2:
+        blue = firstColor;
+        red = secondColor;
+        break;
+    }
+    return Color(red, green, blue);
+}
+
 
 Image::Image(int bitSize)
     :m_width(1 << bitSize), m_height(1 << bitSize), m_colors (std::vector<Color>(m_width * m_height))
@@ -68,6 +92,25 @@ Image::Image(int width, int height, IntMatrix red, IntMatrix green, IntMatrix bl
         for (int y = 0; y < m_height; y++) {
             Color color = Color(red[x][y], green[x][y], blue[x][y]);
             m_colors[y * m_width + x] = color;
+        }
+    }
+}
+Image::Image(int width, int height, IntMatrix white)
+    : m_width(width), m_height(height), m_colors(std::vector<Color>(width* height))
+{
+    for (int x = 0; x < m_width; x++) {
+        for (int y = 0; y < m_height; y++) {
+            Color color = Color(white[x][y], white[x][y], white[x][y]);
+            m_colors[y * m_width + x] = color;
+        }
+    }
+}
+Image::Image(int width, int height, std::vector<std::vector<Color>> colors)
+    : m_width(width), m_height(height), m_colors(std::vector<Color>(width* height))
+{
+    for (int x = 0; x < m_width; x++) {
+        for (int y = 0; y < m_height; y++) {
+            m_colors[y * m_width + x] = colors[x][y];
         }
     }
 }

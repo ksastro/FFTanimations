@@ -1,7 +1,5 @@
 #include "FFT.h"
-#include "Image.h"
-#include <complex>
-#include <vector>
+
 
 static bool isPow2(int x) {
 	return (x > 0 && (x & (x - 1)) == 0);
@@ -99,7 +97,7 @@ ComplexArray SortForFourier(ComplexArray input) {
 
 ComplexMatrix TransposeSquareMatrix(ComplexMatrix input)
 {
-	int size = input.size();
+	int size = (int)input.size();
 	ComplexMatrix output(size, std::vector<std::complex<double>>(size));
 	if (input[0].size() != size)
 	{
@@ -187,7 +185,7 @@ std::vector<std::vector<int>> fftReverseToInt(std::vector<ComplexArray>& input, 
 static ComplexMatrix fft2d(ComplexMatrix& input, int mode)
 {
 	
-	int size = input.size();
+	int size = (int)input.size();
 
 	// Create output vector with appropriate size
 	ComplexMatrix oneDimFFT(size, std::vector<std::complex<double>>(size));
@@ -236,6 +234,45 @@ std::vector<ComplexMatrix> fftReverse2d(std::vector<ComplexMatrix>& input)
 		output.push_back(fftReverse2d(input[i]));
 	}
 	return output;
+}
+
+void ExportFft2d(Image image, int size)
+{
+	std::cout << "Starting color extraction" << std::endl;
+	std::vector<std::vector<std::vector<int>>> ColorsSeparated;
+	image.ExtractColorArraysTo(ColorsSeparated);
+	std::cout << "Color extraction finished" << std::endl << std::endl;
+
+	std::cout << "Starting comlex converting" << std::endl;
+	std::vector<std::vector<ComplexArray>> ColorsComplex = IntToComplex(ColorsSeparated);
+	std::cout << "Comlex converting finished" << std::endl << std::endl;
+
+	std::cout << "Starting fft" << std::endl;
+	std::vector<ComplexMatrix> fftsByColor = fft2d(ColorsComplex);
+	std::cout << "Fft finished" << std::endl << std::endl;
+
+	std::vector<std::vector<std::vector<Color>>> fftsAsColorMatrices;
+
+	for (int colorID = 0; colorID < 3; colorID++) {
+		fftsAsColorMatrices.push_back({});
+		for (int row = 0; row < size; row++) {
+			fftsAsColorMatrices[colorID].push_back({});
+			for (int column = 0; column < size; column++) {
+				double magnitude = std::abs(fftsByColor[colorID][row][column]);
+				double phase = std::arg(fftsByColor[colorID][row][column]);
+				Color color = Color::ConvertComplexToColor(magnitude, phase);
+				fftsAsColorMatrices[colorID][row].push_back(color);
+			}
+		}
+	}
+
+	std::vector<Image> fftsAsFrames;
+	for (int i = 0; i < std::size(fftsAsColorMatrices); i++) {
+		fftsAsFrames.push_back(Image(size, size, fftsAsColorMatrices[i]));
+		std::string name = std::to_string(i) + ".bmp";
+		fftsAsFrames[i].Export(name);
+	}
+
 }
 
 
